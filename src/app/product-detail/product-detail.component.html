@@ -1,0 +1,27 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/allservers']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h2>{{product.prod_name}}</h2></mat-card-title>
+      <mat-card-subtitle><h3>{{product.server_address}}</h3></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <p><dt><b>RAM:</b> {{product.server_mem}}</dt></p>
+        <p><dt><b>CPU:</b> {{product.server_cpu}}</dt></p>
+        <p><dt><b>Being used by:</b> {{product.prod_user}}</dt></p>
+        <p><dt><b>Details:</b> {{product.prod_desc}}</dt></p>
+        <p><dt><b>Updated At:</b> {{product.updated_at | date}}</dt></p>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/server-edit-adminonly', product._id]"><mat-icon>edit</mat-icon></a>
+    </mat-card-actions>
+  </mat-card>
+</div>

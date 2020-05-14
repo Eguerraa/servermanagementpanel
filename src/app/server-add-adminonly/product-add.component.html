@@ -1,0 +1,58 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/allservers']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="productForm" (ngSubmit)="onFormSubmit(productForm.value)">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Server Name" formControlName="prod_name"
+               [errorStateMatcher]="">
+        <mat-error>
+          <span *ngIf="!productForm.get('prod_name').valid && productForm.get('prod_name').touched">Please Enter the server name</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Server IP Address" formControlName="server_address"
+               [errorStateMatcher]="">
+        <mat-error>
+          <span *ngIf="!productForm.get('server_address').valid && productForm.get('server_address').touched">Please Enter the server IP address</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Server Memory" formControlName="server_mem"
+               [errorStateMatcher]="">
+        <mat-error>
+          <span *ngIf="!productForm.get('server_mem').valid && productForm.get('server_mem').touched">Please enter Server amount of Memory RAM</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Server CPU" formControlName="server_cpu"
+               [errorStateMatcher]="">
+        <mat-error>
+          <span *ngIf="!productForm.get('server_cpu').valid && productForm.get('server_cpu').touched">Please enter Server CPU</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Server in Use by:" formControlName="prod_user"
+               [errorStateMatcher]="">
+        <mat-error>
+          <span *ngIf="!productForm.get('prod_user').valid && productForm.get('prod_user').touched">Please enter who is using the server</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Server Description" formControlName="prod_desc"
+               [errorStateMatcher]="">
+        <mat-error>
+          <span *ngIf="!productForm.get('prod_desc').valid && productForm.get('prod_desc').touched">Please enter Server Description (ex.Product)</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" [disabled]="!productForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+      </div>
+    </form>
+  </mat-card>
+</div>
