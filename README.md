@@ -1,4 +1,4 @@
-# Server Magement Panel Webpage
+# Server Management Panel Webpage
 
 This is a simple table table where some server details can be added and maintained.
 This project was made due to a need of controlling who is using each server inside a small company.
